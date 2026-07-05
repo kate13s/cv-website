@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kateryna Shevelieva — Business Transformation Analyst</title>
+<meta name="description" content="Business Transformation Analyst connecting people, processes and technology. MSc Business Information Systems (FHNW) · 5+ years commercial leadership · Power BI · BPMN · Camunda.">
+<meta property="og:title" content="Kateryna Shevelieva — Business Transformation Analyst">
+<meta property="og:description" content="I turn business questions into clear insights, dashboards, and actionable decisions. 135% profitability growth delivered.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f1a;
+  --surface:#121828;
+  --surface-2:#1a2238;
+  --border:rgba(255,255,255,.08);
+  --text:#e8ecf5;
+  --muted:#9aa5bd;
+  --accent:#5eead4;
+  --accent-2:#818cf8;
+  --grad:linear-gradient(120deg,#5eead4,#818cf8 60%,#c084fc);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Sora','Inter',sans-serif;line-height:1.15}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);background:rgba(11,15,26,.7);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Sora';font-weight:800;font-size:1.05rem;letter-spacing:.02em}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:26px;font-size:.9rem;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--grad);color:#0b0f1a;font-weight:700;font-size:.85rem;padding:9px 18px;border-radius:99px;transition:transform .2s}
+.nav-cta:hover{transform:translateY(-2px)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* hero */
+.hero{position:relative;padding:160px 0 90px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-220px;right:-180px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(129,140,248,.22),transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-260px;left:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(94,234,212,.14),transparent 65%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(94,234,212,.35);background:rgba(94,234,212,.08);color:var(--accent);font-size:.8rem;font-weight:600;padding:7px 15px;border-radius:99px;margin-bottom:22px}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(2.3rem,5.5vw,3.6rem);font-weight:800;margin-bottom:18px}
+.hero .subtitle{font-size:1.15rem;color:var(--muted);max-width:34rem;margin-bottom:32px}
+.hero .subtitle strong{color:var(--text)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:99px;font-weight:700;font-size:.95rem;transition:transform .2s,box-shadow .2s}
+.btn-primary{background:var(--grad);color:#0b0f1a}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(94,234,212,.25)}
+.btn-ghost{border:1px solid var(--border);color:var(--text);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--accent);transform:translateY(-3px)}
+.hero-card{background:linear-gradient(160deg,var(--surface),var(--surface-2));border:1px solid var(--border);border-radius:24px;padding:34px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.avatar{width:120px;height:120px;margin:0 auto 18px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;font-size:2.4rem;color:#0b0f1a}
+.hero-card h3{font-size:1.2rem;margin-bottom:4px}
+.hero-card .role{color:var(--accent);font-size:.88rem;font-weight:600;margin-bottom:18px}
+.hero-card ul{list-style:none;text-align:left;font-size:.86rem;color:var(--muted)}
+.hero-card li{padding:9px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:12px}
+.hero-card li b{color:var(--text);font-weight:600;white-space:nowrap}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero{padding-top:120px}}
+
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:10px 0 0}
+.metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;text-align:center;transition:transform .25s,border-color .25s}
+.metric:hover{transform:translateY(-5px);border-color:rgba(94,234,212,.4)}
+.metric .num{font-family:'Sora';font-weight:800;font-size:2rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.metric .lbl{font-size:.82rem;color:var(--muted);margin-top:6px}
+@media(max-width:760px){.metrics{grid-template-columns:repeat(2,1fr)}}
+
+/* sections */
+section{padding:88px 0}
+.sec-tag{color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.sec-title{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:800;margin-bottom:14px}
+.sec-lead{color:var(--muted);max-width:44rem;margin-bottom:44px}
+
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skill-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px;transition:transform .25s,border-color .25s}
+.skill-card:hover{transform:translateY(-5px);border-color:rgba(129,140,248,.45)}
+.skill-card .icon{font-size:1.6rem;margin-bottom:14px}
+.skill-card h3{font-size:1.02rem;margin-bottom:8px}
+.skill-card p{font-size:.86rem;color:var(--muted)}
+@media(max-width:760px){.skills-grid{grid-template-columns:1fr}}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.tool{border:1px solid var(--border);background:var(--surface-2);color:var(--muted);font-size:.82rem;font-weight:600;padding:8px 16px;border-radius:99px;transition:color .2s,border-color .2s}
+.tool:hover{color:var(--accent);border-color:rgba(94,234,212,.4)}
+
+/* experience */
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:'';position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent-2))}
+.t-item{position:relative;padding-bottom:44px}
+.t-item:last-child{padding-bottom:0}
+.t-item::before{content:'';position:absolute;left:-31px;top:7px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.t-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;margin-bottom:6px}
+.t-item h3{font-size:1.12rem}
+.t-where{color:var(--accent);font-size:.85rem;font-weight:600}
+.t-date{color:var(--muted);font-size:.8rem;border:1px solid var(--border);padding:3px 12px;border-radius:99px}
+.t-item ul{list-style:none;margin-top:10px}
+.t-item li{color:var(--muted);font-size:.92rem;padding:5px 0 5px 22px;position:relative}
+.t-item li::before{content:'▹';position:absolute;left:0;color:var(--accent)}
+.t-item li b{color:var(--text)}
+
+/* projects */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+.project:hover{transform:translateY(-6px);border-color:rgba(94,234,212,.45);box-shadow:0 18px 44px rgba(0,0,0,.35)}
+.project .thumb{height:120px;display:flex;align-items:center;justify-content:center;font-size:2.6rem;background:linear-gradient(140deg,rgba(94,234,212,.12),rgba(129,140,248,.16))}
+.project .body{padding:24px;display:flex;flex-direction:column;flex:1}
+.project h3{font-size:1.02rem;margin-bottom:10px}
+.project p{font-size:.86rem;color:var(--muted);flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+.chip{font-size:.7rem;font-weight:600;color:var(--accent);background:rgba(94,234,212,.09);border:1px solid rgba(94,234,212,.25);padding:4px 11px;border-radius:99px}
+.project .link{color:var(--accent-2);font-weight:700;font-size:.85rem}
+.project .link:hover{text-decoration:underline}
+@media(max-width:860px){.projects-grid{grid-template-columns:1fr}}
+
+/* education & languages */
+.edu-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:20px}
+.edu-col{display:flex;flex-direction:column;gap:16px}
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.edu-card h3{font-size:1rem;margin-bottom:4px}
+.edu-card .where{color:var(--accent);font-size:.83rem;font-weight:600}
+.edu-card .when{color:var(--muted);font-size:.78rem;margin-top:2px}
+.edu-card p{color:var(--muted);font-size:.86rem;margin-top:10px}
+.lang-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.lang{margin-bottom:18px}
+.lang:last-child{margin-bottom:0}
+.lang .row{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:7px}
+.lang .row span:last-child{color:var(--muted)}
+.bar{height:7px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--grad)}
+@media(max-width:860px){.edu-grid{grid-template-columns:1fr}}
+
+/* contact */
+.contact{text-align:center;padding:100px 0 110px;position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;inset:auto -200px -300px;height:560px;background:radial-gradient(ellipse at bottom,rgba(129,140,248,.16),transparent 65%);pointer-events:none}
+.contact h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.contact p{color:var(--muted);max-width:36rem;margin:0 auto 36px}
+.contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+
+footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color:var(--muted);font-size:.8rem}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="logo">K<span>S</span>.</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+    </div>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge"><span class="dot"></span>Available now · 80% workload · Wittnau, Switzerland</div>
+      <h1>Turning business questions into <span class="grad-text">decisions that deliver</span></h1>
+      <p class="subtitle">I'm <strong>Kateryna Shevelieva</strong> — Business Transformation Analyst connecting people, processes and technology. I redesign processes, align KPIs and enable change through data-driven reporting — with results like <strong>135% profitability growth</strong>.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://economic-hosta-c71.notion.site/Kateryna-Shevelieva-Business-Transformation-Analyst-Portfolio-2edd6cbfbd53808a8962e2f8d9ae4882" target="_blank" rel="noopener">View portfolio ↗</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/kateryna-shevelieva-842322276" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <div class="avatar">KS</div>
+      <h3>Kateryna Shevelieva</h3>
+      <div class="role">Business Transformation Analyst</div>
+      <ul>
+        <li>Education <b>MSc BIS · FHNW</b></li>
+        <li>Experience <b>5+ years leadership</b></li>
+        <li>Location <b>Wittnau, CH 🇨🇭</b></li>
+        <li>Work permit <b>S permit</b></li>
+        <li>Languages <b>DE · EN · UA · RU</b></li>
+      </ul>
+    </aside>
+  </div>
+  <div class="container">
+    <div class="metrics reveal">
+      <div class="metric"><div class="num">135%</div><div class="lbl">Profitability growth delivered</div></div>
+      <div class="metric"><div class="num">5+</div><div class="lbl">Years in commercial leadership</div></div>
+      <div class="metric"><div class="num">10+</div><div class="lbl">Months of PMO coordination</div></div>
+      <div class="metric"><div class="num">4</div><div class="lbl">Languages spoken</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container reveal">
+    <div class="sec-tag">About</div>
+    <h2 class="sec-title">Connecting people, processes <span class="grad-text">&amp; technology</span></h2>
+    <p class="sec-lead">I'm an MSc Business Information Systems student at FHNW with 5+ years of experience in commercial leadership. I'm passionate about enabling Business-IT transformation through PMO coordination and change support — improving cross-team transparency, role clarity and stakeholder reporting. I use Excel, Power BI, Camunda and GenAI tools to turn business questions into clear insights, dashboards and actionable decisions. Sports, yoga and mindfulness keep me focused, balanced and full of energy for what I do.</p>
+  </div>
+</section>
+
+<section id="skills" style="padding-top:0">
+  <div class="container reveal">
+    <div class="sec-tag">Skills</div>
+    <h2 class="sec-title">What I bring to the table</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="icon">📊</div><h3>Data Analysis &amp; Visualization</h3><p>Excel and Power BI dashboards with clear KPIs, trends and drill-down views that support real decision-making.</p></div>
+      <div class="skill-card"><div class="icon">🔄</div><h3>Business Process Modelling</h3><p>BPMN / DMN modelling in Camunda — As-Is analysis, bottleneck identification and structured To-Be process design.</p></div>
+      <div class="skill-card"><div class="icon">🎯</div><h3>Strategic Consulting &amp; Process Optimization</h3><p>Redesigning sales cycles, KPIs and incentive structures to align teams with long-term business goals.</p></div>
+      <div class="skill-card"><div class="icon">🗂️</div><h3>Project &amp; PMO Coordination</h3><p>Project and task management tooling, meeting cadence, role clarity and weekly/monthly stakeholder reporting.</p></div>
+      <div class="skill-card"><div class="icon">🤝</div><h3>CRM &amp; Sales Strategies</h3><p>CRM insights for forecasting sales trends and optimizing resource allocation across departments.</p></div>
+      <div class="skill-card"><div class="icon">🤖</div><h3>GenAI for Productivity</h3><p>1.5+ years applying ChatGPT, Gemini and other GenAI tools to accelerate analysis, reporting and communication.</p></div>
+    </div>
+    <div class="tools">
+      <span class="tool">Power BI</span><span class="tool">Excel</span><span class="tool">Camunda</span><span class="tool">BPMN / DMN</span><span class="tool">CRM</span><span class="tool">Canva</span><span class="tool">ChatGPT</span><span class="tool">Gemini</span>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="padding-top:0">
+  <div class="container reveal">
+    <div class="sec-tag">Experience</div>
+    <h2 class="sec-title">Where I've made an impact</h2>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-meta"><h3>Project &amp; Operations Coordinator (PMO)</h3><span class="t-where">WOTAN · Tech Company, Kyiv</span><span class="t-date">Jan 2021 – Nov 2021</span></div>
+        <ul>
+          <li>Implemented a <b>project &amp; task management tool</b> to improve cross-team transparency</li>
+          <li>Enabled organizational change by <b>clarifying roles</b> and establishing a meeting cadence</li>
+          <li>Established <b>weekly/monthly stakeholder reporting</b> to align teams and drive adoption</li>
+        </ul>
+      </div>
+      <div class="t-item">
+        <div class="t-meta"><h3>Sales Transformation Lead</h3><span class="t-where">WOTAN · Tech Company, Kyiv</span><span class="t-date">Sep 2019 – Nov 2021</span></div>
+        <ul>
+          <li>Optimized the end-to-end sales cycle — <b>135% profitability growth</b> by reducing lead times and increasing conversion rates</li>
+          <li>Led a sales transformation initiative, <b>redesigning team KPIs and incentive structures</b> to align with long-term business goals</li>
+          <li>Utilized <b>CRM insights</b> to forecast sales trends and optimize resource allocation</li>
+        </ul>
+      </div>
+      <div class="t-item">
+        <div class="t-meta"><h3>Client Relations Specialist</h3><span class="t-where">4SMART Business Academy, Kyiv</span><span class="t-date">2017 – 2019</span></div>
+        <ul>
+          <li>Achieved <b>top sales performance</b> in high-value B2C deals</li>
+          <li>Built <b>long-term client relationships</b> through strong communication and negotiation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" style="padding-top:0">
+  <div class="container reveal">
+    <div class="sec-tag">Featured Projects</div>
+    <h2 class="sec-title">Selected work</h2>
+    <p class="sec-lead">Real business cases — from Power BI analytics to process redesign for a Swiss company. Full case studies in my portfolio.</p>
+    <div class="projects-grid">
+      <div class="project">
+        <div class="thumb">📈</div>
+        <div class="body">
+          <h3>External Wealth &amp; Inequality Dashboard</h3>
+          <p>Interactive Power BI dashboard analyzing investment performance and portfolio composition — clear KPIs, trends and drill-down views built to support decision-making.</p>
+          <div class="chips"><span class="chip">Power BI</span><span class="chip">Data Modeling</span><span class="chip">Visualization</span></div>
+          <a class="link" href="https://economic-hosta-c71.notion.site/Kateryna-Shevelieva-Business-Transformation-Analyst-Portfolio-2edd6cbfbd53808a8962e2f8d9ae4882" target="_blank" rel="noopener">Case study ↗</a>
+        </div>
+      </div>
+      <div class="project">
+        <div class="thumb">🔄</div>
+        <div class="body">
+          <h3>Onboarding Process Improvement</h3>
+          <p>Real case for a Swiss company: identified bottlenecks in client onboarding and proposed a structured To-Be process with clearer responsibilities and control points.</p>
+          <div class="chips"><span class="chip">BPMN</span><span class="chip">Camunda</span><span class="chip">As-Is / To-Be</span></div>
+          <a class="link" href="https://economic-hosta-c71.notion.site/Kateryna-Shevelieva-Business-Transformation-Analyst-Portfolio-2edd6cbfbd53808a8962e2f8d9ae4882" target="_blank" rel="noopener">Case study ↗</a>
+        </div>
+      </div>
+      <div class="project">
+        <div class="thumb">🚀</div>
+        <div class="body">
+          <h3>WOTAN Sales Transformation</h3>
+          <p>Built and scaled a sales function from scratch. Delivered 135% profitability growth through KPI redesign, process improvements and data-driven forecasting.</p>
+          <div class="chips"><span class="chip">KPI Design</span><span class="chip">CRM Analytics</span><span class="chip">Change Support</span></div>
+          <a class="link" href="https://economic-hosta-c71.notion.site/Kateryna-Shevelieva-Business-Transformation-Analyst-Portfolio-2edd6cbfbd53808a8962e2f8d9ae4882" target="_blank" rel="noopener">Case study ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" style="padding-top:0">
+  <div class="container reveal">
+    <div class="sec-tag">Education &amp; Languages</div>
+    <h2 class="sec-title">Foundation for transformation</h2>
+    <div class="edu-grid">
+      <div class="edu-col">
+        <div class="edu-card">
+          <h3>MSc in Business Information Systems</h3>
+          <div class="where">FHNW School of Business, Olten 🇨🇭</div>
+          <div class="when">2025 – 2027</div>
+          <p>Practice-oriented education focused on information systems for enterprise success in a global, networked, digital economy.</p>
+        </div>
+        <div class="edu-card">
+          <h3>Preparatory Studies — Integral Project</h3>
+          <div class="where">FHNW School of Engineering, Brugg 🇨🇭</div>
+          <div class="when">2024 – 2025</div>
+          <p>Interdisciplinary program with applied projects in mathematics and programming, plus advanced German and English.</p>
+        </div>
+        <div class="edu-card">
+          <h3>Master's &amp; Bachelor's in Business Administration</h3>
+          <div class="where">Taras Shevchenko National University, Kyiv 🇺🇦</div>
+          <div class="when">2012 – 2018</div>
+          <p>International trade, economic strategy and business analytics with courses in management, finance and global markets.</p>
+        </div>
+      </div>
+      <div class="lang-card">
+        <h3 style="margin-bottom:20px">Languages</h3>
+        <div class="lang"><div class="row"><span>🇬🇧 English</span><span>C1</span></div><div class="bar"><i style="width:88%"></i></div></div>
+        <div class="lang"><div class="row"><span>🇩🇪 German</span><span>B2</span></div><div class="bar"><i style="width:74%"></i></div></div>
+        <div class="lang"><div class="row"><span>🇺🇦 Ukrainian</span><span>Native</span></div><div class="bar"><i style="width:100%"></i></div></div>
+        <div class="lang"><div class="row"><span>Russian</span><span>Native</span></div><div class="bar"><i style="width:100%"></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container reveal">
+    <div class="sec-tag">Contact</div>
+    <h2>Let's build your next <span class="grad-text">transformation</span> together</h2>
+    <p>Available now at 80%, increasing to 100% from July 2027. Open to roles connecting people, processes and technology — in Switzerland or remotely.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:shevelieva.kateryna@gmail.com">✉️ shevelieva.kateryna@gmail.com</a>
+      <a class="btn btn-ghost" href="tel:+41796022348">📞 +41 79 602 23 48</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/kateryna-shevelieva-842322276" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© 2026 Kateryna Shevelieva · Business Transformation Analyst · Wittnau, Switzerland</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
