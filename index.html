@@ -31,7 +31,8 @@ h1,h2,h3{font-family:'Sora','Inter',sans-serif;line-height:1.15}
 a{color:inherit;text-decoration:none}
 img{max-width:100%}
 .container{max-width:1080px;margin:0 auto;padding:0 24px}
-.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grad-text{background:var(--grad);background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 6s ease infinite}
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 
 /* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);background:rgba(11,15,26,.7);border-bottom:1px solid var(--border)}
@@ -46,8 +47,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);ba
 
 /* hero */
 .hero{position:relative;padding:160px 0 90px;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-220px;right:-180px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(129,140,248,.22),transparent 65%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-260px;left:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(94,234,212,.14),transparent 65%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-220px;right:-180px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(129,140,248,.22),transparent 65%);pointer-events:none;animation:float1 14s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-260px;left:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(94,234,212,.14),transparent 65%);pointer-events:none;animation:float2 18s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-60px,40px) scale(1.12)}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(70px,-50px) scale(1.08)}}
 .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;position:relative;z-index:1}
 .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(94,234,212,.35);background:rgba(94,234,212,.08);color:var(--accent);font-size:.8rem;font-weight:600;padding:7px 15px;border-radius:99px;margin-bottom:22px}
 .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
@@ -62,7 +65,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);ba
 .btn-ghost{border:1px solid var(--border);color:var(--text);background:var(--surface)}
 .btn-ghost:hover{border-color:var(--accent);transform:translateY(-3px)}
 .hero-card{background:linear-gradient(160deg,var(--surface),var(--surface-2));border:1px solid var(--border);border-radius:24px;padding:34px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.35)}
-.avatar{width:120px;height:120px;margin:0 auto 18px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;font-size:2.4rem;color:#0b0f1a}
+.avatar{width:120px;height:120px;margin:0 auto 18px;border-radius:50%;background:var(--grad);background-size:200% 200%;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;font-size:2.4rem;color:#0b0f1a;animation:gradShift 6s ease infinite}
+.hero-card{animation:cardFloat 6s ease-in-out infinite}
+@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 .hero-card h3{font-size:1.2rem;margin-bottom:4px}
 .hero-card .role{color:var(--accent);font-size:.88rem;font-weight:600;margin-bottom:18px}
 .hero-card ul{list-style:none;text-align:left;font-size:.86rem;color:var(--muted)}
@@ -154,6 +160,18 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:none}
+/* staggered children */
+.stagger>*{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible .stagger>*{opacity:1;transform:none}
+.reveal.visible .stagger>*:nth-child(1){transition-delay:.05s}
+.reveal.visible .stagger>*:nth-child(2){transition-delay:.15s}
+.reveal.visible .stagger>*:nth-child(3){transition-delay:.25s}
+.reveal.visible .stagger>*:nth-child(4){transition-delay:.35s}
+.reveal.visible .stagger>*:nth-child(5){transition-delay:.45s}
+.reveal.visible .stagger>*:nth-child(6){transition-delay:.55s}
+/* language bars fill when revealed */
+.bar i{width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1) .3s}
+.reveal.visible .bar i{width:var(--w)}
 </style>
 </head>
 <body>
@@ -175,7 +193,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
 <header class="hero">
   <div class="container hero-grid">
     <div>
-      <div class="badge"><span class="dot"></span>Available now · 80% workload · Wittnau, Switzerland</div>
+      <div class="badge"><span class="dot"></span>Open to opportunities · Wittnau, Switzerland</div>
       <h1>Turning business questions into <span class="grad-text">decisions that deliver</span></h1>
       <p class="subtitle">I'm <strong>Kateryna Shevelieva</strong> — Business Transformation Analyst connecting people, processes and technology. I redesign processes, align KPIs and enable change through data-driven reporting — with results like <strong>135% profitability growth</strong>.</p>
       <div class="cta-row">
@@ -197,11 +215,11 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
     </aside>
   </div>
   <div class="container">
-    <div class="metrics reveal">
-      <div class="metric"><div class="num">135%</div><div class="lbl">Profitability growth delivered</div></div>
-      <div class="metric"><div class="num">5+</div><div class="lbl">Years in commercial leadership</div></div>
-      <div class="metric"><div class="num">10+</div><div class="lbl">Months of PMO coordination</div></div>
-      <div class="metric"><div class="num">4</div><div class="lbl">Languages spoken</div></div>
+    <div class="metrics reveal stagger">
+      <div class="metric"><div class="num" data-count="135" data-suffix="%">0%</div><div class="lbl">Profitability growth delivered</div></div>
+      <div class="metric"><div class="num" data-count="5" data-suffix="+">0+</div><div class="lbl">Years in commercial leadership</div></div>
+      <div class="metric"><div class="num" data-count="10" data-suffix="+">0+</div><div class="lbl">Months of PMO coordination</div></div>
+      <div class="metric"><div class="num" data-count="4" data-suffix="">0</div><div class="lbl">Languages spoken</div></div>
     </div>
   </div>
 </header>
@@ -210,7 +228,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
   <div class="container reveal">
     <div class="sec-tag">About</div>
     <h2 class="sec-title">Connecting people, processes <span class="grad-text">&amp; technology</span></h2>
-    <p class="sec-lead">I'm an MSc Business Information Systems student at FHNW with 5+ years of experience in commercial leadership. I'm passionate about enabling Business-IT transformation through PMO coordination and change support — improving cross-team transparency, role clarity and stakeholder reporting. I use Excel, Power BI, Camunda and GenAI tools to turn business questions into clear insights, dashboards and actionable decisions. Sports, yoga and mindfulness keep me focused, balanced and full of energy for what I do.</p>
+    <p class="sec-lead">I'm an MSc Business Information Systems student at FHNW with 5+ years of experience in commercial leadership. I'm passionate about enabling Business-IT transformation through Project Management Office (PMO) coordination and change support — improving cross-team transparency, role clarity and stakeholder reporting. Sports, yoga and mindfulness help me stay focused, balanced and full of energy for what I do.</p>
   </div>
 </section>
 
@@ -218,16 +236,16 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
   <div class="container reveal">
     <div class="sec-tag">Skills</div>
     <h2 class="sec-title">What I bring to the table</h2>
-    <div class="skills-grid">
-      <div class="skill-card"><div class="icon">📊</div><h3>Data Analysis &amp; Visualization</h3><p>Excel and Power BI dashboards with clear KPIs, trends and drill-down views that support real decision-making.</p></div>
-      <div class="skill-card"><div class="icon">🔄</div><h3>Business Process Modelling</h3><p>BPMN / DMN modelling in Camunda — As-Is analysis, bottleneck identification and structured To-Be process design.</p></div>
+    <div class="skills-grid stagger">
+      <div class="skill-card"><div class="icon">📊</div><h3>Data Analysis</h3><p>Excel and Power BI dashboards with clear KPIs, trends and drill-down views that support real decision-making.</p></div>
+      <div class="skill-card"><div class="icon">🔄</div><h3>Business Modeling (BPMN, DMN)</h3><p>As-Is analysis, bottleneck identification and structured To-Be process design with clear responsibilities.</p></div>
       <div class="skill-card"><div class="icon">🎯</div><h3>Strategic Consulting &amp; Process Optimization</h3><p>Redesigning sales cycles, KPIs and incentive structures to align teams with long-term business goals.</p></div>
-      <div class="skill-card"><div class="icon">🗂️</div><h3>Project &amp; PMO Coordination</h3><p>Project and task management tooling, meeting cadence, role clarity and weekly/monthly stakeholder reporting.</p></div>
       <div class="skill-card"><div class="icon">🤝</div><h3>CRM &amp; Sales Strategies</h3><p>CRM insights for forecasting sales trends and optimizing resource allocation across departments.</p></div>
-      <div class="skill-card"><div class="icon">🤖</div><h3>GenAI for Productivity</h3><p>1.5+ years applying ChatGPT, Gemini and other GenAI tools to accelerate analysis, reporting and communication.</p></div>
+      <div class="skill-card"><div class="icon">🧩</div><h3>Analytical Thinking &amp; Problem-Solving</h3><p>Turning complex business questions into structured analysis, clear insights and actionable decisions.</p></div>
+      <div class="skill-card"><div class="icon">🎤</div><h3>Presentation &amp; Time Management</h3><p>Confident stakeholder presentations paired with sharp prioritization to deliver on time, every time.</p></div>
     </div>
     <div class="tools">
-      <span class="tool">Power BI</span><span class="tool">Excel</span><span class="tool">Camunda</span><span class="tool">BPMN / DMN</span><span class="tool">CRM</span><span class="tool">Canva</span><span class="tool">ChatGPT</span><span class="tool">Gemini</span>
+      <span class="tool">Excel</span><span class="tool">Power BI</span><span class="tool">BPMN</span><span class="tool">DMN</span><span class="tool">CRM</span>
     </div>
   </div>
 </section>
@@ -236,7 +254,14 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
   <div class="container reveal">
     <div class="sec-tag">Experience</div>
     <h2 class="sec-title">Where I've made an impact</h2>
-    <div class="timeline">
+    <div class="timeline stagger">
+      <div class="t-item">
+        <div class="t-meta"><h3>Service Employee</h3><span class="t-where">Landgasthof Ochsen · Switzerland 🇨🇭</span><span class="t-date">Jun 2022 – Jan 2023</span></div>
+        <ul>
+          <li>Developed <b>adaptability</b> and strong <b>customer service skills</b> in a fast-paced environment</li>
+          <li>First professional experience in the Swiss work culture</li>
+        </ul>
+      </div>
       <div class="t-item">
         <div class="t-meta"><h3>Project &amp; Operations Coordinator (PMO)</h3><span class="t-where">WOTAN · Tech Company, Kyiv</span><span class="t-date">Jan 2021 – Nov 2021</span></div>
         <ul>
@@ -269,7 +294,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
     <div class="sec-tag">Featured Projects</div>
     <h2 class="sec-title">Selected work</h2>
     <p class="sec-lead">Real business cases — from Power BI analytics to process redesign for a Swiss company. Full case studies in my portfolio.</p>
-    <div class="projects-grid">
+    <div class="projects-grid stagger">
       <div class="project">
         <div class="thumb">📈</div>
         <div class="body">
@@ -305,7 +330,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
   <div class="container reveal">
     <div class="sec-tag">Education &amp; Languages</div>
     <h2 class="sec-title">Foundation for transformation</h2>
-    <div class="edu-grid">
+    <div class="edu-grid stagger">
       <div class="edu-col">
         <div class="edu-card">
           <h3>MSc in Business Information Systems</h3>
@@ -328,10 +353,10 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
       </div>
       <div class="lang-card">
         <h3 style="margin-bottom:20px">Languages</h3>
-        <div class="lang"><div class="row"><span>🇬🇧 English</span><span>C1</span></div><div class="bar"><i style="width:88%"></i></div></div>
-        <div class="lang"><div class="row"><span>🇩🇪 German</span><span>B2</span></div><div class="bar"><i style="width:74%"></i></div></div>
-        <div class="lang"><div class="row"><span>🇺🇦 Ukrainian</span><span>Native</span></div><div class="bar"><i style="width:100%"></i></div></div>
-        <div class="lang"><div class="row"><span>Russian</span><span>Native</span></div><div class="bar"><i style="width:100%"></i></div></div>
+        <div class="lang"><div class="row"><span>🇬🇧 English</span><span>C1</span></div><div class="bar"><i style="--w:88%"></i></div></div>
+        <div class="lang"><div class="row"><span>🇩🇪 German</span><span>B2</span></div><div class="bar"><i style="--w:74%"></i></div></div>
+        <div class="lang"><div class="row"><span>🇺🇦 Ukrainian</span><span>Native</span></div><div class="bar"><i style="--w:100%"></i></div></div>
+        <div class="lang"><div class="row"><span>Russian</span><span>Native</span></div><div class="bar"><i style="--w:100%"></i></div></div>
       </div>
     </div>
   </div>
@@ -341,7 +366,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
   <div class="container reveal">
     <div class="sec-tag">Contact</div>
     <h2>Let's build your next <span class="grad-text">transformation</span> together</h2>
-    <p>Available now at 80%, increasing to 100% from July 2027. Open to roles connecting people, processes and technology — in Switzerland or remotely.</p>
+    <p>Open to roles connecting people, processes and technology — in Switzerland or remotely. Work permit in Switzerland (S permit).</p>
     <div class="contact-links">
       <a class="btn btn-primary" href="mailto:shevelieva.kateryna@gmail.com">✉️ shevelieva.kateryna@gmail.com</a>
       <a class="btn btn-ghost" href="tel:+41796022348">📞 +41 79 602 23 48</a>
@@ -355,8 +380,24 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
 </footer>
 
 <script>
+function countUp(el) {
+  const target = +el.dataset.count, suffix = el.dataset.suffix || '';
+  const dur = 1400, t0 = performance.now();
+  function tick(t) {
+    const p = Math.min((t - t0) / dur, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(target * eased) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
 const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('visible');
+    e.target.querySelectorAll('[data-count]').forEach(countUp);
+    io.unobserve(e.target);
+  });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
