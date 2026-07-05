@@ -169,6 +169,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
 .reveal.visible .stagger>*:nth-child(4){transition-delay:.35s}
 .reveal.visible .stagger>*:nth-child(5){transition-delay:.45s}
 .reveal.visible .stagger>*:nth-child(6){transition-delay:.55s}
+.reveal.visible .stagger>*:nth-child(7){transition-delay:.65s}
 /* language bars fill when revealed */
 .bar i{width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1) .3s}
 .reveal.visible .bar i{width:var(--w)}
@@ -237,6 +238,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
     <div class="sec-tag">Skills</div>
     <h2 class="sec-title">What I bring to the table</h2>
     <div class="skills-grid stagger">
+      <div class="skill-card"><div class="icon">🤖</div><h3>AI Agent Orchestration (IBM watsonx)</h3><p>Multi-agent automation with IBM watsonx Orchestrate — agent design, OpenAPI tool integration and human-in-the-loop workflows.</p></div>
       <div class="skill-card"><div class="icon">📊</div><h3>Data Analysis</h3><p>Excel and Power BI dashboards with clear KPIs, trends and drill-down views that support real decision-making.</p></div>
       <div class="skill-card"><div class="icon">🔄</div><h3>Business Modeling (BPMN, DMN)</h3><p>As-Is analysis, bottleneck identification and structured To-Be process design with clear responsibilities.</p></div>
       <div class="skill-card"><div class="icon">🎯</div><h3>Strategic Consulting &amp; Process Optimization</h3><p>Redesigning sales cycles, KPIs and incentive structures to align teams with long-term business goals.</p></div>
@@ -245,7 +247,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
       <div class="skill-card"><div class="icon">🎤</div><h3>Presentation &amp; Time Management</h3><p>Confident stakeholder presentations paired with sharp prioritization to deliver on time, every time.</p></div>
     </div>
     <div class="tools">
-      <span class="tool">Excel</span><span class="tool">Power BI</span><span class="tool">BPMN</span><span class="tool">DMN</span><span class="tool">CRM</span>
+      <span class="tool">IBM watsonx Orchestrate</span><span class="tool">Excel</span><span class="tool">Power BI</span><span class="tool">BPMN</span><span class="tool">DMN</span><span class="tool">CRM</span><span class="tool">Supabase / PostgreSQL</span>
     </div>
   </div>
 </section>
@@ -256,10 +258,11 @@ footer{border-top:1px solid var(--border);padding:26px 0;text-align:center;color
     <h2 class="sec-title">Where I've made an impact</h2>
     <div class="timeline stagger">
       <div class="t-item">
-        <div class="t-meta"><h3>Service Employee</h3><span class="t-where">Landgasthof Ochsen · Switzerland 🇨🇭</span><span class="t-date">Jun 2022 – Jan 2023</span></div>
+        <div class="t-meta"><h3>Internship — AI Process Automation</h3><span class="t-where">IBM watsonx Orchestrate × Roche Diagnostics · FHNW 🇨🇭</span><span class="t-date">Spring 2026</span></div>
         <ul>
-          <li>Developed <b>adaptability</b> and strong <b>customer service skills</b> in a fast-paced environment</li>
-          <li>First professional experience in the Swiss work culture</li>
+          <li>Automated participant recruitment for the Roche CX Lab with a <b>7-agent IBM watsonx Orchestrate architecture</b> — cutting ~5 hours of manual work per request towards under 30 minutes (<b>90%+ time reduction</b>)</li>
+          <li>Replaced a 75-column spreadsheet of 850+ participants with a <b>normalized PostgreSQL database</b> (Supabase) integrated into watsonx Orchestrate via OpenAPI</li>
+          <li>Designed a <b>human-in-the-loop pipeline</b> with read/write agent separation, smart LLM-based candidate matching and a full communication audit trail</li>
         </ul>
       </div>
       <div class="t-item">
